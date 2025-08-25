@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+
+:root {
+  --green: #9DAD86;
+  --darkgreen: #677553;
+  --red: #81382F;
+  --text-color: #0D0D05;
+}
+
+html {
+  font-size: 12px;
+  color: var(--text-color);
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Jersey 10", sans-serif;
+  background-color: var(--green);
+  text-align: center;
+  padding: 50px 10px 0 10px;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+.btn {
+  text-transform: uppercase;
+  background-color: var(--darkgreen);
+  border: 3px solid var(--green);
+  box-shadow: 0px 0px 0px 3px var(--darkgreen);
+  cursor: pointer;
+  color: var(--green);
+  outline: none;
+  transition: all .2s;
+  transform: scale(1);
+}
+
+.btn:active {
+  transform: scale(.95);
+}
+
+.menu-control {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menu-control button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: content-box;
+  width: 45px;
+  height: 45px;
+  padding: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .menu-control button:hover {
+    filter: brightness(90%);
+  }
+}
+
+.menu-control button img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+#gameContainer {
+  position: relative;
+  padding: 10px;
+  border: 3px solid var(--text-color);
+}
+
+#gameBoard {
+  background-image: url("/block.svg");
+  background-size: 30px 30px;
+  background-position: -2px -2px;
+}
+
+#result {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 270px;
+  transform: translateX(-50%) translateY(-50%);
+  filter: drop-shadow(2px 2px 0px var(--green));
+}
+
+#score,
+#result {
+  font-size: 5.5rem;
+}
+
+#resetBtn {
+  margin: 15px 0 55px 0;
+  width: 150px;
+  height: 50px;
+  font-family: inherit;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+@media(hover: hover) and (pointer: fine) {
+  #resetBtn:hover {
+    width: 175px;
+  }
+}
+
+#telegram {
+  text-align: center;
+  display: block;
+  color: inherit;
+  font-size: 2rem;
+  margin-top: auto;
+  opacity: .5;
+  padding-bottom: 20px;
+}

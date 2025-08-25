@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-  <h1>Snake Game</h1>
-  <script src="./script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake Game | Play Now</title>
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <div class="menu-control">
+      <button class="btn" id="musicBtn">
+        <img src="/music-off.svg" alt="music-control" />
+      </button>
+      <button class="btn" id="soundBtn">
+        <img src="/sound-off.svg" alt="sound-control" />
+      </button>
+    </div>
+    <h1>🍎🐍 Snake Game 🐍🍎</h1>
+    <div id="wrapper">
+      <div id="gameContainer">
+        <canvas id="gameBoard" width="480" height="480"></canvas>
+        <div id="result"></div>
+      </div>
+      <div id="score">0</div>
+      <button class="btn" id="resetBtn">Reset Game</button>
+    </div>
+    <a id="telegram" target="_blank" href="https://t.me/drzoidberg_portfolio"
+      >@dczoidberg</a
+    >
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>
