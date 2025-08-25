@@ -3,6 +3,9 @@ const ctx = gameBoard.getContext("2d") as CanvasRenderingContext2D;
 const scoreText = document.querySelector("#score") as HTMLDivElement;
 const resultText = document.querySelector("#result") as HTMLDivElement;
 const resetBtn = document.querySelector("#resetBtn") as HTMLButtonElement;
+const contolsMobileBtns = document.querySelectorAll(
+  ".controls-btn",
+) as NodeListOf<HTMLButtonElement>;
 
 const musicBtn = document.querySelector("#musicBtn") as HTMLButtonElement;
 const soundBtn = document.querySelector("#soundBtn") as HTMLButtonElement;
@@ -36,6 +39,15 @@ let snake = [
 let isMusicOn = false;
 let isSoundOn = false;
 
+enum MobileDirections {
+  Up = "UP",
+  Down = "DOWN",
+  Left = "LEFT",
+  Right = "RIGHT",
+}
+
+let mobileDirection: MobileDirections | null = null;
+
 const music = new Audio("/sounds/music.mp3");
 music.loop = true;
 
@@ -65,6 +77,17 @@ soundBtn.addEventListener("click", () => {
     "src",
     isSoundOn === false ? "/sound-off.svg" : "/sound.svg",
   );
+});
+
+contolsMobileBtns.forEach((mobileBtn) => {
+  mobileBtn.addEventListener("click", () => {
+    const direction = mobileBtn.getAttribute(
+      "aria-controls",
+    ) as MobileDirections;
+    mobileDirection = direction;
+    console.log(mobileDirection);
+    changeDirection();
+  });
 });
 
 function playLoseSound() {
@@ -123,7 +146,7 @@ function createFood() {
 
 function drawFood() {
   ctx.beginPath();
-  ctx.rect(foodX + gap + 1, foodY + gap + 1, unitSize - 10, unitSize - 10);
+  ctx.rect(foodX + gap + 2, foodY + gap + 2, unitSize - 10, unitSize - 10);
 
   ctx.fillStyle = foodColor;
   ctx.fill();
@@ -156,8 +179,8 @@ function drawSnake() {
     ctx.beginPath();
 
     ctx.rect(
-      snakePart.x + gap + 1,
-      snakePart.y + gap + 1,
+      snakePart.x + gap + 2,
+      snakePart.y + gap + 3,
       unitSize - 5 - gap * 2,
       unitSize - 5 - gap * 2,
     );
@@ -175,8 +198,8 @@ function drawSnake() {
   });
 }
 
-function changeDirection(event: KeyboardEvent) {
-  const keyPressed = event.key;
+function changeDirection(event?: KeyboardEvent) {
+  const keyPressed = event?.key;
   const LEFT = "ArrowLeft";
   const UP = "ArrowUp";
   const RIGHT = "ArrowRight";
@@ -189,22 +212,32 @@ function changeDirection(event: KeyboardEvent) {
 
   switch (true) {
     case (keyPressed == LEFT && !goingRight) ||
-      (keyPressed == "a" && !goingRight):
+      (keyPressed == "a" && !goingRight) ||
+      (mobileDirection === MobileDirections.Left && !goingRight):
       xVelocity = -unitSize;
       yVelocity = 0;
+      console.log("going LEFT");
       break;
-    case (keyPressed == UP && !goingDown) || (keyPressed == "w" && !goingDown):
+    case (keyPressed == UP && !goingDown) ||
+      (keyPressed == "w" && !goingDown) ||
+      (mobileDirection === MobileDirections.Up && !goingDown):
       xVelocity = 0;
       yVelocity = -unitSize;
+      console.log("going UP");
       break;
     case (keyPressed == RIGHT && !goingLeft) ||
-      (keyPressed == "d" && !goingLeft):
+      (keyPressed == "d" && !goingLeft) ||
+      (mobileDirection === MobileDirections.Right && !goingLeft):
       xVelocity = unitSize;
       yVelocity = 0;
+      console.log("going RIGHT");
       break;
-    case (keyPressed == DOWN && !goingUp) || (keyPressed == "s" && !goingUp):
+    case (keyPressed == DOWN && !goingUp) ||
+      (keyPressed == "s" && !goingUp) ||
+      (mobileDirection === MobileDirections.Down && !goingUp):
       xVelocity = 0;
       yVelocity = unitSize;
+      console.log("going DOWN");
       break;
   }
 }

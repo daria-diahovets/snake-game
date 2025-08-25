@@ -96,9 +96,8 @@ h1 {
 }
 
 #gameBoard {
-  background-image: url("/block.svg");
-  background-size: 30px 30px;
-  background-position: -2px -2px;
+  background-image: url("/bg.svg");
+  background-size: 480px 480px;
 }
 
 #result {
@@ -113,6 +112,55 @@ h1 {
 #score,
 #result {
   font-size: 5.5rem;
+}
+
+.controls-btns {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  grid-template-rows: repeat(2, 70px);
+  grid-template-columns: repeat(3, 70px);
+  gap: 15px;
+  margin-bottom: 35px;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .controls-btns {
+    display: grid;
+  }
+}
+
+.controls-btns button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  aspect-ratio: 1;
+}
+
+.controls-btns button img {
+  width: 55px;
+  height: 55px;
+}
+
+.controls-btns button:nth-child(1) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.controls-btns button:nth-child(2) {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.controls-btns button:nth-child(3) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.controls-btns button:nth-child(4) {
+  grid-column: 3;
+  grid-row: 2;
 }
 
 #resetBtn {
@@ -138,4 +186,146 @@ h1 {
   margin-top: auto;
   opacity: .5;
   padding-bottom: 20px;
+}
+
+@media(max-width: 768px) {
+  body {
+    padding: 13vw 2vw 0 2vw;
+  }
+
+  h1 {
+    font-size: 6vw;
+  }
+
+  .btn {
+    border: 0.4vw solid var(--green);
+    box-shadow: 0px 0px 0px 0.4vw var(--darkgreen);
+  }
+
+  .menu-control {
+    top: 3.3vw;
+    left: 3.3vw;
+    flex-direction: row;
+    gap: 3.5vw;
+  }
+
+  .menu-control button {
+    width: 8vw;
+    height: 8vw;
+  }
+
+  .menu-control button img {
+    width: 6.5vw;
+    height: 6.5vw;
+  }
+
+  #gameContainer {
+    padding: 1.4vw;
+    border: 0.4vw solid var(--text-color);
+  }
+
+  #gameBoard {
+    width: 62.5vw;
+    height: 62.5vw;
+    background-size: 62.5vw 62.5vw;
+  }
+
+  #result {
+    width: 40vw;
+    filter: drop-shadow(0.262vw 0.262vw 0px var(--green));
+  }
+
+  #score,
+  #result {
+    font-size: 10vw;
+  }
+
+  .controls-btns {
+    grid-template-rows: repeat(2, 11vw);
+    grid-template-columns: repeat(3, 11vw);
+    gap: 2vw;
+    margin-bottom: 4.6vw;
+  }
+
+  .controls-btns button {
+    width: 11vw;
+  }
+
+  .controls-btns button img {
+    width: 8vw;
+    height: 8vw;
+  }
+
+  #resetBtn {
+    margin: 2.5vw 0 6.9vw 0;
+    width: 30vw;
+    height: 8vw;
+    font-size: 4.5vw;
+  }
+
+  @media(hover: hover) and (pointer: fine) {
+    #resetBtn:hover {
+      width: 35vw;
+    }
+  }
+
+  #telegram {
+    font-size: 4.5vw;
+    padding-bottom: 2.7vw;
+  }
+}
+
+@media(max-width: 450px) {
+  body {
+    padding: 17vw 2vw 0 2vw;
+  }
+
+  h1 {
+    font-size: 7vw;
+  }
+
+  .menu-control {
+    top: 4vw;
+    left: 4vw;
+    gap: 3.5vw;
+  }
+
+  .menu-control button {
+    width: 10vw;
+    height: 10vw;
+  }
+
+  .menu-control button img {
+    width: 7.5vw;
+    height: 7.5vw;
+  }
+
+  .controls-btns {
+    grid-template-rows: repeat(2, 16vw);
+    grid-template-columns: repeat(3, 16vw);
+    gap: 3vw;
+    margin-bottom: 4.6vw;
+  }
+
+  .controls-btns button {
+    width: 16vw;
+  }
+
+  .controls-btns button img {
+    width: 11vw;
+    height: 11vw;
+  }
+
+  #resetBtn {
+    margin: 2.5vw 0 6.9vw 0;
+    width: 45vw;
+    height: 11vw;
+    font-size: 6vw;
+  }
+
+  @media(hover: hover) and (pointer: fine) {
+    #resetBtn:hover {
+      width: 50vw;
+    }
+  }
 }

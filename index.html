@@ -4,6 +4,36 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Welcome to the Snake Game! Play the classic game online! Challenge yourself or a friend, no download needed. This is a fun, smooth, and addictive game built with TypeScript + HTML + CSS"
+    />
+    <meta
+      name="keywords"
+      content="Snake Game, online game, free, snake, fun, board game"
+    />
+    <meta name="author" content="DrZoidberg" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://drzoidberg-snake-game.netlify.app/" />
+    <meta property="og:title" content="Snake Game | Play Now" />
+    <meta
+      property="og:description"
+      content="Welcome to the Snake Game! Play the classic game online! Challenge yourself or a friend, no download needed. This is a fun, smooth, and addictive game built with TypeScript + HTML + CSS"
+    />
+    <meta property="og:image" content="https://drzoidberg-snake-game.netlify.app/screenshot.png" />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://drzoidberg-snake-game.netlify.app/" />
+    <meta property="twitter:title" content="Snake Game | Play Now" />
+    <meta
+      property="twitter:description"
+      content="Welcome to the Snake Game! Play the classic game online! Challenge yourself or a friend, no download needed. This is a fun, smooth, and addictive game built with TypeScript + HTML + CSS"
+    />
+    <meta
+      property="twitter:image"
+      content="https://drzoidberg-snake-game.netlify.app/screenshot.png"
+    />
     <title>Snake Game | Play Now</title>
     <link rel="stylesheet" href="src/style.css" />
   </head>
@@ -23,6 +53,20 @@
         <div id="result"></div>
       </div>
       <div id="score">0</div>
+      <div class="controls-btns">
+        <button aria-controls="UP" class="btn controls-btn">
+          <img src="/arrow.svg" alt="up" />
+        </button>
+        <button aria-controls="LEFT" class="btn controls-btn">
+          <img style="transform: rotate(-90deg)" src="/arrow.svg" alt="left" />
+        </button>
+        <button aria-controls="DOWN" class="btn controls-btn">
+          <img style="transform: rotate(180deg)" src="/arrow.svg" alt="down" />
+        </button>
+        <button aria-controls="RIGHT" class="btn controls-btn">
+          <img style="transform: rotate(90deg)" src="/arrow.svg" alt="right" />
+        </button>
+      </div>
       <button class="btn" id="resetBtn">Reset Game</button>
     </div>
     <a id="telegram" target="_blank" href="https://t.me/drzoidberg_portfolio"
